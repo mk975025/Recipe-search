@@ -1,20 +1,17 @@
 import React from "react";
 
 export default function Recipe({ title, image, calories, ingredients }) {
-//  console.log(ingredients);
   return (
     <div>
       <h2>{title}</h2>
-      {/* <img src={image} alt="Recipe image"/> */}
+      <img src={image} alt="Recipe" />
       <h3>Calories: {calories}</h3>
-      <ol>
-        {ingredients.map((e)=>{
-          console.log(e);
-          <li>
-            {e.foodCategory}
-          </li>
-        })}
-      </ol>
+      <h4>Ingredients: </h4>
+      <ul>
+        {ingredients.map((ingredient, index) => (
+          <li key={index}>{ingredient.text}</li>
+        ))}
+      </ul>
     </div>
   );
 }

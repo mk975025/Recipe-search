@@ -17,43 +17,40 @@ function App() {
 
   const NUTRITION_API_KEY = "b341aafccfc844c75dafbec9590327c8";
   const NUTRITION_API_ID = "4656ed26";
-  const onPress=()=>{
+
+  useEffect(() => {
     setLoading(true);
     fetchRecipes();
     fetchNutrition();
-  }
-  // useEffect(() => {
-  //   setLoading(true);
-  //   fetchRecipes();
-  //   fetchNutrition();
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [query]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query]);
   const fetchRecipes = async () => {
     const response = await fetch(
       `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=${API_ID}&app_key=${API_KEY}`
     );
     const data = await response.json();
     setRecipes(data.hits);
-   // console.log(data.hits);
+    // console.log(data.hits);
     setLoading(false);
   };
-  const fetchNutrition = async() => {
+  const fetchNutrition = async () => {
     const response = await fetch(
-        `https://api.edamam.com/api/nutrition-data?app_id=${NUTRITION_API_ID}&app_key=${NUTRITION_API_KEY}&nutrition-type=cooking&ingr=${nutritionSearch}`
-    ); const data = await response.json();
+      `https://api.edamam.com/api/nutrition-data?app_id=${NUTRITION_API_ID}&app_key=${NUTRITION_API_KEY}&nutrition-type=cooking&ingr=${nutritionSearch}`
+    );
+    const data = await response.json();
     setNutrition(data.healthLabels);
-   // console.log(data.healthLabels);
+    // console.log(data.healthLabels);
     setLoading(false);
-  }
-  const updateSearch=(e) => {
-    setSearch(e.target.value);  
-  }
+  };
+  const updateSearch = (e) => {
+    setSearch(e.target.value);
+  };
 
-  const getSearch=(e) => {
+  const getSearch = (e) => {
     e.preventDefault();
     setQuery(search);
     setSearch("");
-  }
+  };
 
   if (loading) {
     return <div>Loading...</div>;
@@ -61,13 +58,20 @@ function App() {
   return (
     <div className="App">
       <h1 className="title">Recipe App</h1>
+
       <form onSubmit={getSearch}>
-      <input type="text" placeholder="Search for recipes." value={search} onChange={updateSearch}></input>
-      <button type="Submit" onClick={onPress}>Search</button>
+        <input
+          type="text"
+          placeholder="Search for recipes"
+          value={search}
+          onChange={updateSearch}
+        />
+        <button type="submit">Search</button>
       </form>
+
       {typeof recipes[0] !== "undefined" && (
         <div className="recipe">
-          {recipes.map((recipe, index) => (
+          {recipes.map((recipe) => (
             <Recipe
               key={recipe.recipe.label}
               title={recipe.recipe.label}
@@ -76,14 +80,13 @@ function App() {
               ingredients={recipe.recipe.ingredients}
             />
           ))}
-          {nutrition.map((label, index) => (<Nutrition
-            key={index}
-            healthLabel={label}
-          />))}
+          {nutrition.map((label, index) => (
+            <Nutrition key={index} healthLabel={label} />
+          ))}
         </div>
       )}
     </div>
   );
-          }
+}
 
 export default App;
