@@ -1,36 +1,39 @@
-import * as React from 'react';
-import Box from '@material-ui/core/Box';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import { Link } from 'react-router-dom';
-
-function LinkTab(props) {
-  return (
-    <Tab
-      component="a"
-      onClick={(event) => {
-        event.preventDefault();
-      }}
-      {...props}
-    />
-  );
-}
+import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Nav() {
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
   return (
-    <Box sx={{ width: '100%' }}>
-      <Tabs value={value} onChange={handleChange} aria-label="nav tabs example">
-        <LinkTab label="Home" href="/"/>
-        <LinkTab label="Recipes" href="/recipes"/>
-        <LinkTab label="Health Labels" href="/health-labels"/>
-        <LinkTab label="About us" href="/about"/>
-      </Tabs>
-    </Box>
+    <nav className="Nav">
+      <div className="Nav__container">
+        <Link to="/" className="Nav__brand">
+          <h3>Recipe Search App</h3>
+        </Link>
+
+        <div className="Nav__right">
+          <ul className="Nav__item-wrapper">
+            <li className="Nav__item">
+              <Link className="Nav__link" to="/">
+                Home
+              </Link>
+            </li>
+            <li className="Nav__item">
+              <Link className="Nav__link" to="/recipes">
+                Recipes
+              </Link>
+            </li>
+            <li className="Nav__item">
+              <Link className="Nav__link" to="/nutrition-labels">
+                Nutrition Labels
+              </Link>
+            </li>
+            <li className="Nav__item">
+              <Link className="Nav__link" to="/about">
+                About Us
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 }

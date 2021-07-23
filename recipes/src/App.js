@@ -1,7 +1,7 @@
 import "./App.css";
 import Nav from "./components/Nav";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import  Recipes  from "./components/Recipes";
+import Recipes from "./components/Recipes";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
           <Route exact path="/">
             <h1>Home page</h1>
           </Route>
-          <Route component={Recipes} exact path="/recipes"></Route>
+          <Route exact component={Recipes} path="/recipes" />
         </Switch>
       </div>
     </Router>
