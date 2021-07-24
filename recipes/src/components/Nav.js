@@ -1,35 +1,52 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import styles from "./Styles/Nav.module.css";
 
 export default function Nav() {
   return (
-    <nav className="Nav">
-      <div className="Nav__container">
-        <Link to="/" className="Nav__brand">
-          <h3>Recipe Search App</h3>
-        </Link>
+    <nav className={styles.Nav}>
+      <div className={styles.Nav_container}>
+        <NavLink to="/home" className={styles.Nav_brand}>
+          <h3>Recipe Search</h3>
+        </NavLink>
 
-        <div className="Nav__right">
-          <ul className="Nav__item-wrapper">
-            <li className="Nav__item">
-              <Link className="Nav__link" to="/">
+        <div className={styles.Nav_right}>
+          <ul className={styles.Nav_item_wrapper}>
+            <li className={styles.Nav_item}>
+              <NavLink
+                activeClassName={styles.selected}
+                className={styles.Nav_link}
+                to="/home"
+              >
                 Home
-              </Link>
+              </NavLink>
             </li>
-            <li className="Nav__item">
-              <Link className="Nav__link" to="/recipes">
+            <li className={styles.Nav_item}>
+              <NavLink
+                activeClassName={styles.selected}
+                className={styles.Nav_link}
+                to="/recipes"
+              >
                 Recipes
-              </Link>
+              </NavLink>
             </li>
-            <li className="Nav__item">
-              <Link className="Nav__link" to="/nutrition-labels">
+            <li className={styles.Nav_item}>
+              <NavLink
+                activeClassName={styles.selected}
+                className={styles.Nav_link}
+                to="/nutrition-labels"
+              >
                 Nutrition Labels
-              </Link>
+              </NavLink>
             </li>
-            <li className="Nav__item">
-              <Link className="Nav__link" to="/about">
+            <li className={styles.Nav_item}>
+              <NavLink
+                activeClassName={styles.selected}
+                className={styles.Nav_link}
+                to="/about"
+              >
                 About Us
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>

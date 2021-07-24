@@ -1,0 +1,41 @@
+.Nav {
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 0 10px black;
+}
+
+.Nav_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.Nav_brand {
+  text-decoration: none;
+  color: black;
+  font-size: 1.4rem;
+}
+
+.Nav_right {
+  font-size: 1.2rem;
+}
+
+.Nav_item_wrapper {
+  list-style: none;
+  display: inline-flex;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.Nav_item {
+  margin: 20px;
+}
+
+.Nav_link {
+  text-decoration: none;
+  color: black;
+}
+
+.selected {
+  color: palevioletred;
+}
