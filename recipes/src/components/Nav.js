@@ -6,18 +6,14 @@ export default function Nav() {
   return (
     <nav className={styles.Nav}>
       <div className={styles.Nav_container}>
-        <NavLink to="/home" className={styles.Nav_brand}>
+        <NavLink to="/" className={styles.Nav_brand}>
           <h3>Recipe Search</h3>
         </NavLink>
 
         <div className={styles.Nav_right}>
           <ul className={styles.Nav_item_wrapper}>
             <li className={styles.Nav_item}>
-              <NavLink
-                activeClassName={styles.selected}
-                className={styles.Nav_link}
-                to="/home"
-              >
+              <NavLink className={styles.Nav_link} to="/">
                 Home
               </NavLink>
             </li>

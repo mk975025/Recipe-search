@@ -2,8 +2,9 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Recipe from "./Recipe";
 import Nutrition from "./Nutrition";
+import styles from "./Styles/Recipes.module.css";
 
-export default function Recipes () {
+export default function Recipes() {
   const [nutritionSearch, setNutritionSearch] = useState("milk");
   const [nutrition, setNutrition] = useState([]);
 
@@ -55,21 +56,22 @@ export default function Recipes () {
     return <div>Loading...</div>;
   }
   return (
-    <div>
-      <h1 className="title">Recipe App</h1>
-
-      <form onSubmit={getSearch}>
+    <div className={styles.recipes_container}>
+      <form className={styles.form_wrapper} onSubmit={getSearch}>
         <input
           type="text"
           placeholder="Search for recipes"
+          className={styles.searchbar}
           value={search}
           onChange={updateSearch}
         />
-        <button type="submit">Search</button>
+        <button className={styles.search_button} type="submit">
+          Search
+        </button>
       </form>
 
       {typeof recipes[0] !== "undefined" && (
-        <div className="recipe">
+        <div className={styles.recipes}>
           {recipes.map((recipe) => (
             <Recipe
               key={recipe.recipe.label}
@@ -86,4 +88,4 @@ export default function Recipes () {
       )}
     </div>
   );
-};
+}
