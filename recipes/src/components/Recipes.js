@@ -32,8 +32,10 @@ export default function Recipes() {
 
   const getSearch = (e) => {
     e.preventDefault();
-    setQuery(search);
-    setSearch("");
+    if (search !== "") {
+      setQuery(search);
+      setSearch("");
+    }
   };
   if (loading) {
     return <div>Loading...</div>;
