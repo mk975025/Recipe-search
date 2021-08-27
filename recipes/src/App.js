@@ -16,8 +16,8 @@ function App() {
           <Route exact path="/nutrition-labels">
             <h1>Nutrition Labels page</h1>
           </Route>
-          <Route exact path="/about">
-            <h1>About Us page</h1>
+          <Route exact path="/contact">
+            <h1>Contact page</h1>
           </Route>
           <Route>
             <h1>Error 404</h1>

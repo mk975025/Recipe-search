@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-shadow: 0 0 10px black;
+  background-color: rgba(51, 51, 51, 1);
 }
 
 .Nav_container {
@@ -12,7 +13,7 @@
 
 .Nav_brand {
   text-decoration: none;
-  color: black;
+  color: white;
   font-size: 1.4rem;
 }
 
@@ -31,9 +32,13 @@
   margin: 20px;
 }
 
+.Nav_item:hover {
+  opacity: 0.6;
+}
+
 .Nav_link {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 .selected {
