@@ -2,6 +2,7 @@ import "./App.css";
 import Nav from "./components/Nav";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Recipes from "./components/Recipes";
+import HealthLabels from "./components/HealthLabels"
 
 function App() {
   return (
