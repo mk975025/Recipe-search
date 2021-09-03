@@ -35,9 +35,9 @@ export default function Nav() {
               <NavLink
                 activeClassName={styles.selected}
                 className={styles.Nav_link}
-                to="/nutrition-labels"
+                to="/health-labels"
               >
-                Nutrition Labels
+                Health Labels
               </NavLink>
             </li>
             <li className={styles.Nav_item}>

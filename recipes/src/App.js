@@ -1,8 +1,9 @@
 import "./App.css";
-import Nav from "./components/Nav";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Recipes from "./components/Recipes";
-import HealthLabels from "./components/HealthLabels";
+import Nav from "./components/Nav";
+import Recipes from "./components/Pages/Recipes/Recipes";
+import HealthLabels from "./components/Pages/HealthLabels/HealthLabels";
+import Home from "./components/Pages/Home"
 
 function App() {
   return (
@@ -10,11 +11,9 @@ function App() {
       <div>
         <Nav />
         <Switch>
-          <Route exact path="/">
-            <h1>Home page</h1>
-          </Route>
+          <Route exact component={Home} path="/" />
           <Route exact component={Recipes} path="/recipes" />
-          <Route exact component={HealthLabels} path="/nutrition-labels" />
+          <Route exact component={HealthLabels} path="/health-labels" />
           <Route exact path="/contact">
             <h1>Contact page</h1>
           </Route>
